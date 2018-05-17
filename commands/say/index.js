@@ -1,7 +1,7 @@
 // Command say
 // Deletes user message and repeats the content
 const runCommand = (message, args) => {
-  const text = args.slice(1).join(" ");
+  const text = args.join(" ");
   
   message.delete();
   message.channel.send(text);

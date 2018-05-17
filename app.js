@@ -15,10 +15,11 @@ client.on('message', message => {
   // Split into array by whitespace
   const args = message.content.slice(config.prefix).trim().split(/ +/g);
   // Seperate command key from message array
-  const command = args.shift().toLowerCase();
+  const command = args.shift().toLowerCase().substr(1);
   
-  if (message.content.startsWith(config.prefix + "ping")) {
-    console.log(command);
-    handler[command.substr(1)].runCommand(message);
+  console.log(command, args);
+  
+  if (command === "ping" || command === "say") {
+    handler[command].runCommand(message, args);
   }
 });
