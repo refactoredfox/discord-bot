@@ -1,54 +1,46 @@
-Build a Discord Bot
-=========================
+# Guide Bot
+An example of a Discord.js Bot Handler. Updated and Maintained by the Idiot's Guide Community.
 
-This is a quick and easy template for building your own Discord bot, this project relies on **[Discord.js](https://github.com/hydrabolt/discord.js/)**, if you want to extend this bot, I suggest you look at **[the official Discord API documentation](https://discordapp.com/developers/docs/intro)** and **the Discord.js README**.
+Ages ago, Guide Bot was actually a little bot I had on the official discord.js server.
+It helped me link to the d.js bot making guide I was building, with links.
+This bot grew into something that I could show new coders and bot makers, but
+over time it grew into a full framework - one that is now under the hands of a 
+group of contributors, and no longer easily "understandable" by the majority
+of our newbies. So I've pulled the original Guide Bot out of the mothballs,
+gave it a fresh coat of paint and grease, and here it is back in its full glory!
 
-Before building your own bot, I highly advise checking if the bot you want to build already exists, the common places to find Discord bots are:
-* [https://discordbots.org/](https://discordbots.org/)
-* [https://bots.discord.pw/](https://bots.discord.pw/)
-  
-# Getting Started
+This command handler is 98% compatible with [my selfbot](https://github.com/eslachance/evie.selfbot) 
+and 99% compatible with commands from [York's Tutorial Bot](https://github.com/AnIdiotsGuide/Tutorial-Bot/tree/Episode-10-Part-1).
 
-**Step One**  
-You need to  [create a new Discord Application](https://discordapp.com/developers/applications/me) in the developer console.
+## Requirements
 
-![Step One Screenshot](https://i.gyazo.com/216dec70040ae14a6ee121dce67e3f82.png)
+- `git` command line ([Windows](https://git-scm.com/download/win)|[Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)|[MacOS](https://git-scm.com/download/mac)) installed
+- `node` [Version 8.0.0 or higher](https://nodejs.org)
 
-**Step Two**  
-You need to create a Bot User for your application.
-![Step Two Screenshot](https://i.gyazo.com/47f8e671eccfb09ac22c6630417ccdee.png)
+You also need your bot's token. This is obtained by creating an application in
+the Developer section of discordapp.com. Check the [first section of this page](https://anidiots.guide/getting-started/the-long-version.html) 
+for more info.
 
-**Step Three**  
-You need to add your Bot User's token as a parameter to `client.login()`, these will be used by the code to act on behalf of your registered application's bot.
+## Downloading
 
-If you want to avoid unneeded complexity, untick **Require OAuth2 Code Grant**.
+In a command prompt in your projects folder (wherever that may be) run the following:
 
-![Step Three Screenshot](https://i.gyazo.com/d5f194037b8823f42c7442e3959c8f32.png)
+`git clone https://github.com/An-Idiots-Guide/guidebot.git`
 
-**Step Four**  
-**Generate your bot's OAuth2 URL** and it can then be invited to any channel with just a click of a link.
+Once finished: 
 
-![Step Four Screenshot](https://i.gyazo.com/5cabc8aaa969f4339ddab48f8f2234f4.png)
+- In the folder from where you ran the git command, run `cd guidebot` and then run `npm install`
+- Rename or copy `config.js.example` to `config.js`
+- Edit `config.js` and fill in all the relevant details as indicated in the file's comments.
 
-**Step Five**  
-Remix this project, look through the code in `server.js` and add the custom commands you wish your bot to have and **VIOLA**, you're now the proud owner of your own Discord bot 🎉🎉🎉🎉
+## Starting the bot
 
-**Go build something cool.**  
-  
-  
-# More about Discord
-  
-**Discord** is all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone. Stop paying for TeamSpeak servers and hassling with Skype. Simplify your life.
+To start the bot, in the command prompt, run the following command:
+`node index.js`
 
-# More about Glitch
+## Inviting to a guild
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+To add the bot to your guild, you have to get an oauth link for it. 
 
-Find out more [about Glitch](https://glitch.com/about).
-
-
-# This project was built by [Greg Worrall](https://twitter.com/gregjwww) 🎉
--------------------
-
-\\( ゜o゜)ノ Follow me on [Twitter](https://twitter.com/gregjwww) or [GitHub](https://github.com/gregjw).
- 
+You can use this site to help you generate a full OAuth Link, which includes a calculator for the permissions:
+[https://finitereality.github.io/permissions-calculator/?v=0](https://finitereality.github.io/permissions-calculator/?v=0)
