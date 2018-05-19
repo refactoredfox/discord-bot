@@ -11,18 +11,22 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 
-// This is your client. Some people call it `bot`, some people call it `self`,
-// some might call it `cootchie`. Either way, when you see `client.something`,
-// or `bot.something`, this is what we're refering to. Your client.
+// Boot up the express engine to keep this bot alive
+require("./express.js");
+
+// This is your client.
 const client = new Discord.Client();
 
 // Here we load the config file that contains our token and our prefix values.
-client.config = require("./config.js");
-// client.config.token contains the bot's token
-// client.config.prefix contains the message prefix
+client.config = require("./config.yaml");
+client.config.token = process.env.BOT_TOKEN;
+client.config.ownerID = process.env.OWNER_ID;
 
 // Require our logger
 client.logger = require("./util/Logger");
+
+// Require our logger
+client.permLevels = require("./util/Permissions");
 
 // Let's start by getting some useful functions that we'll use throughout
 // the bot, like logs and elevation features.
@@ -66,8 +70,8 @@ const init = async () => {
 
   // Generate a cache of client permissions for pretty perms
   client.levelCache = {};
-  for (let i = 0; i < client.config.permLevels.length; i++) {
-    const thisLevel = client.config.permLevels[i];
+  for (let i = 0; i < client.permLevels.length; i++) {
+    const thisLevel = client.permLevels[i];
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
